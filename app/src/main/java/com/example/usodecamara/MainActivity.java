@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgfoto;
 
-    String rutaimagenadsoluta;
+    String rutadsoluta;
 
     private static final int REQUEST_CODIGO_CAMARA = 200;
     private static final int REQUEST_CODIGO_CAPTURAR_IMAGEN = 300;
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             imagen = File.createTempFile(prefijoArchivo,".jpg",directorioImagen);
-            rutaimagenadsoluta = imagen.getAbsolutePath();
+            rutadsoluta = imagen.getAbsolutePath();
         }catch (Exception error){
             Log.e("ErrorGenerarFoto", error.getMessage().toString());
         }
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode==REQUEST_CODIGO_CAPTURAR_IMAGEN){
             if (resultCode == Activity.RESULT_OK){
-                imgfoto.setImageURI(Uri.parse(rutaimagenadsoluta));
+                imgfoto.setImageURI(Uri.parse(rutadsoluta));
 
             }
         }
